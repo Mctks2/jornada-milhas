@@ -1,3 +1,4 @@
+import { FormBuscaService } from './../../core/services/form-busca.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
 })
 export class ModalComponent {
 
-  
+  constructor(public FormBuscaService: FormBuscaService) { }
 }
