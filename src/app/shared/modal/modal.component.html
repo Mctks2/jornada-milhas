@@ -2,19 +2,9 @@
   <h1 mat-dialog-title>Viajante</h1>
   <div mat-dialog-content>
     <div class="selecao-idade">
-      <app-seletor-passageiro
-        [formControl]="FormBuscaService.obterControle('adultos')"
-        titulo="Adultos"
-        subtitulo="(Acima de 12 anos)" />
-      <app-seletor-passageiro
-        [formControl]="FormBuscaService.obterControle('criancas')"
-        titulo="Crianças"
-        subtitulo="(Entre 2 a 11 anos)"
-      />
-      <app-seletor-passageiro
-        [formControl]="FormBuscaService.obterControle('bebes')"
-        titulo="Bebês"
-        subtitulo="(Até 2 anos)" />
+      <app-seletor-passageiro [formControl]="FormBuscaService.obterControle('adultos')" titulo="Adultos" subtitulo="(Acima de 12 anos)"/>
+      <app-seletor-passageiro [formControl]="FormBuscaService.obterControle('criancas')" titulo="Crianças" subtitulo="(Entre 2 e 11 anos)"/>
+      <app-seletor-passageiro [formControl]="FormBuscaService.obterControle('bebes')" titulo="Bebês" subtitulo="(Até 2 anos)"/>
     </div>
     <div class="selecao-categoria">
       <p><strong>Categoria</strong></p>
@@ -23,18 +13,20 @@
           value="Econômica"
           [selected]="FormBuscaService.formBusca.get('tipo')?.value === 'Econômica'"
           (selectionChange)="FormBuscaService.alterarTipo($event, 'Econômica')"
-          >Econômica</mat-chip-option
         >
+          Econômica
+        </mat-chip-option>
         <mat-chip-option
           value="Executiva"
           [selected]="FormBuscaService.formBusca.get('tipo')?.value === 'Executiva'"
           (selectionChange)="FormBuscaService.alterarTipo($event, 'Executiva')"
-          >Executiva</mat-chip-option
         >
+          Executiva
+        </mat-chip-option>
       </mat-chip-listbox>
     </div>
   </div>
   <div mat-dialog-actions class="modal-actions">
-    <button color="primary" mat-flat-button mat-dialog-close>BUSCAR</button>
+    <button color="primary" mat-flat-button mat-dialog-close (click)="salvarOpcoes()">BUSCAR</button>
   </div>
 </section>

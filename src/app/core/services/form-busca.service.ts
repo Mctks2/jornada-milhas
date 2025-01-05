@@ -16,9 +16,9 @@ export class FormBuscaService {
       origem: new FormControl(null),
       destino: new FormControl(null),
       tipo: new FormControl('Executiva'),
-      adultos: new FormControl(3),
-      criancas: new FormControl(0),
-      bebes: new FormControl(1),
+      adultos: new FormControl(1),
+      criancas: new FormControl(2),
+      bebes: new FormControl(3),
     });
   }
 
@@ -70,6 +70,9 @@ export class FormBuscaService {
       width: '50%',
     });
   }
+
+    // src/app/core/services/form-busca.service.ts
+
     trocarOrigemDestino(): void {
       const origem = this.formBusca.get('origem')?.value;
       const destino = this.formBusca.get('destino')?.value;
@@ -79,4 +82,5 @@ export class FormBuscaService {
         destino: origem
       });
     }
+
 }

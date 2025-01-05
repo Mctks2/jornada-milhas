@@ -32,7 +32,7 @@ export class SeletorPassageiroComponent implements ControlValueAccessor {
     this.onChange = fn;
   }
   setDisabledState?(isDisabled: boolean): void {
-    throw new Error('Method not implemented.');
+    
   }
 
   incrementar() {
