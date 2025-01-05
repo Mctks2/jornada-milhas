@@ -1,5 +1,5 @@
 <app-card variant="secondary" class="form-busca">
-  <form [formGroup]="formBuscaService.formBusca">
+  <form [formGroup]="formBuscaService.formBusca" (ngSubmit)="buscar()">
     <h2>Passagens</h2>
     <div class="flex-container">
       <mat-button-toggle-group aria-label="Tipo de passagem" formControlName="somenteIda">
@@ -14,17 +14,17 @@
       </mat-button-toggle-group>
 
       <mat-chip (click)="formBuscaService.openDialog()">
-        <div class="inner"><mat-icon>check</mat-icon> 1 adulto</div>
+        <div class="inner"><mat-icon>check</mat-icon> {{formBuscaService.getDescricaoPassageiros()}} </div>
       </mat-chip>
       <mat-chip (click)="formBuscaService.openDialog()">
-        <div class="inner"><mat-icon>check</mat-icon> Econômica</div>
+        <div class="inner"><mat-icon>check</mat-icon> {{formBuscaService.obterControle('tipo').value}} </div>
       </mat-chip>
     </div>
 
     <div class="flex-container">
       <app-dropdown-uf label="Origem" iconePrefixo="flight_takeoff"
         [control]="formBuscaService.obterControle('origem')" />
-      <button mat-icon-button>
+      <button mat-icon-button (click)="formBuscaService.trocarOrigemDestino()">
         <mat-icon>sync_alt</mat-icon>
       </button>
       <app-dropdown-uf label="Destino" iconePrefixo="flight_land"
