@@ -24,15 +24,16 @@ export class SeletorPassageiroComponent implements ControlValueAccessor {
 
   writeValue(val: any): void {
     this.value = val;
+    //this.value = val ?? 0; // Garante que o valor inicial seja válido
   }
   registerOnChange(fn: any): void {
     this.onChange = fn;
   }
   registerOnTouched(fn: any): void {
-    this.onChange = fn;
+    this.onTouch = fn;
   }
   setDisabledState?(isDisabled: boolean): void {
-    
+
   }
 
   incrementar() {
