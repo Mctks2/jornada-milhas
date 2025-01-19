@@ -14,7 +14,7 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'Cadastro',
+    path: 'cadastro',
     component: CadastroComponent
   }
 ];
