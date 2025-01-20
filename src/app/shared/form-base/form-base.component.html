@@ -1,11 +1,11 @@
 <app-container>
   <mat-card>
     <form [formGroup]="cadastroForm">
-      <mat-card-title> Crie sua conta </mat-card-title>
+      <mat-card-title> {{ titulo }} </mat-card-title>
       <section>
         <div class="acoesPerfil" *ngIf="perfilComponent">
           <h2>Dados pessoais</h2>
-          <button mat-stroked-button color="primary">
+          <button (click)="deslogar()" mat-stroked-button color="primary">
             <mat-icon>logout</mat-icon>
             DESLOGAR
           </button>
@@ -101,7 +101,7 @@
             </mat-form-field>
           </div>
         </div>
-        <mat-checkbox formControlName="aceitarTermos" color="primary" class="full-width">Li e aceito os termos e
+        <mat-checkbox *ngIf="!perfilComponent" formControlName="aceitarTermos" color="primary" class="full-width">Li e aceito os termos e
           condições deste cadastro *</mat-checkbox>
         <mat-error *ngIf="
             cadastroForm.get('aceitarTermos')?.invalid &&
@@ -111,8 +111,8 @@
         </mat-error>
       </mat-card-content>
       <mat-card-actions class="full-width">
-        <button (click)="executarAcao()" mat-flat-button [disabled]="cadastroForm.invalid" color="primary">
-          CADASTRAR
+        <button [class.perfil-button]="perfilComponent" (click)="executarAcao()" mat-flat-button [disabled]="cadastroForm.invalid" color="primary">
+          {{ textoBotao }}
         </button>
       </mat-card-actions>
     </form>

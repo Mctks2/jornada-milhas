@@ -31,14 +31,16 @@ export class LoginComponent implements OnInit{
       const senha = this.loginForm.value.senha;
       this.authService.autenticar(email, senha).subscribe({
         next: (value) => {
+          alert('Autenticado com sucesso!');
           console.log('Autenticado com sucesso', value)
           this.router.navigateByUrl('/')
           this.loginForm.reset();
         },
         error: (err) => {
+          alert('Problema na autenticação. Verifique suas credenciais.');
           console.log('Problema na autenticação', err)
         },
       })
-    }
+    } 
   }
 }
