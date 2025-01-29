@@ -49,7 +49,8 @@ import { FiltrosComplementaresComponent } from './shared/form-busca/filtros-comp
 import { CompanhiasComponent } from './shared/form-busca/filtros-complementares/companhias/companhias.component';
 import { LabelComponent } from './shared/form-busca/filtros-complementares/label/label.component';
 import { ParadasComponent } from './shared/form-busca/filtros-complementares/paradas/paradas.component';
-import { PrecosComponent } from './shared/form-busca/filtros-complementares/precos/precos.component'
+import { PrecosComponent } from './shared/form-busca/filtros-complementares/precos/precos.component';
+import { MatSliderModule } from '@angular/material/slider';
 
 
 
@@ -104,7 +105,7 @@ import { PrecosComponent } from './shared/form-busca/filtros-complementares/prec
     MatRadioModule,
     MatDividerModule,
     MatCheckboxModule,
-
+    MatSliderModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
